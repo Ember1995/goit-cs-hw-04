@@ -43,11 +43,6 @@ def worker(task_queue, result_queue, keywords):
     logger.debug(f'{name} finished')
 
 def main_multiprocessing():
-    args = parse_arguments()
-    source = args.get("source")
-    keywords = [keyword.lower() for keyword in args.get("keywords")]
-    num_processes = args.get("processes")
-
     logger.debug('Start program')
     start_time = time.time()
 
@@ -83,4 +78,9 @@ def main_multiprocessing():
     print(results)
 
 if __name__ == '__main__':
+    args = parse_arguments()
+    source = args.get("source")
+    keywords = [keyword.lower() for keyword in args.get("keywords")]
+    num_processes = args.get("processes")
+
     main_multiprocessing()
